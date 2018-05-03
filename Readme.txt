@@ -1,0 +1,1 @@
+Projetos desenvolvidos na disciplina de Programação Android Básica, sob orientação do professor Cleverson Avelino Ferreira
