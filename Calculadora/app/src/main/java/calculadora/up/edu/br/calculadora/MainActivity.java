@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    int operacao;
+    double valor1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,19 +99,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button btnDivide = (Button)findViewById(R.id.btnDivide);
-        btnDivide.setOnClickListener(new View.OnClickListener(){
+        Button btnSoma = (Button)findViewById(R.id.btnSoma);
+        btnSoma.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                txtResultado.append(" ÷ ");
-            }
-        });
-
-        Button btnMultiplica = (Button)findViewById(R.id.btnMultiplica);
-        btnMultiplica.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                txtResultado.append(" x ");
+                valor1 = Double.valueOf(txtResultado.getText().toString());
+                txtResultado.setText("");
+                operacao = 1;
             }
         });
 
@@ -116,15 +113,29 @@ public class MainActivity extends AppCompatActivity {
         btnSubtrai.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                txtResultado.append(" - ");
+                valor1 = Double.valueOf(txtResultado.getText().toString());
+                txtResultado.setText("");
+                operacao = 2;
             }
         });
 
-        Button btnSoma = (Button)findViewById(R.id.btnSoma);
-        btnSoma.setOnClickListener(new View.OnClickListener(){
+        Button btnMultiplica = (Button)findViewById(R.id.btnMultiplica);
+        btnMultiplica.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                txtResultado.append(" + ");
+                valor1 = Double.valueOf(txtResultado.getText().toString());
+                txtResultado.setText("");
+                operacao = 3;
+            }
+        });
+
+        Button btnDivide = (Button)findViewById(R.id.btnDivide);
+        btnDivide.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                valor1 = Double.valueOf(txtResultado.getText().toString());
+                txtResultado.setText("");
+                operacao = 4;
             }
         });
 
@@ -132,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
         btnVirgula.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                txtResultado.append(",");
+                txtResultado.append(".");
             }
         });
 
@@ -140,7 +151,28 @@ public class MainActivity extends AppCompatActivity {
         btnIgual.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                txtResultado.append("=");
+                Double valor2 = Double.valueOf(txtResultado.getText().toString());
+                Double resultadoOperacao = 0.0;
+                if (operacao == 1){
+                    resultadoOperacao = valor1 + valor2;
+                }
+                else {
+                    if (operacao == 2){
+                        resultadoOperacao = valor1 - valor2;
+                    }
+                    else {
+                        if (operacao == 3){
+                            resultadoOperacao = valor1 * valor2;
+                        }
+                        else {
+                            if (operacao == 4){
+                                resultadoOperacao = valor1 / valor2;
+                            }
+                        }
+                    }
+                }
+
+                txtResultado.setText(resultadoOperacao.toString());
             }
         });
 
