@@ -251,8 +251,12 @@ public class MainActivity extends AppCompatActivity {
                     txtResultado.setText(valorInteiro.toString());
                 }
                 else {
-                    valorDecimal = -Double.valueOf((txtResultado.getText().toString()));
-                    txtResultado.setText(valorDecimal.toString());
+                    if (txtResultado.getText().toString().indexOf("-") == -1){
+                        txtResultado.setText("-"+txtResultado.getText().toString());
+                    }
+                    else {
+                        txtResultado.setText(txtResultado.getText().toString().replace("-",""));
+                    }
                 }
             }
         });
