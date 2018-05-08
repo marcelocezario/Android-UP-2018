@@ -243,11 +243,17 @@ public class MainActivity extends AppCompatActivity {
         btnInverteSinal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Double valor;
+                Double valorDecimal;
+                Integer valorInteiro;
 
-                valor = -Double.valueOf((txtResultado.getText().toString()));
-
-                txtResultado.setText(valor.toString());
+                if (txtResultado.getText().toString().indexOf(".") == -1){
+                    valorInteiro = -Integer.parseInt(txtResultado.getText().toString());
+                    txtResultado.setText(valorInteiro.toString());
+                }
+                else {
+                    valorDecimal = -Double.valueOf((txtResultado.getText().toString()));
+                    txtResultado.setText(valorDecimal.toString());
+                }
             }
         });
 
