@@ -28,6 +28,43 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/btnC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="C" />
+
+            <Button
+                android:id="@+id/btnRaiz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="√" />
+
+            <Button
+                android:id="@+id/btnPorcentagem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="%" />
+
+            <Button
+                android:id="@+id/btnPotencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="xʸ" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
                 android:id="@+id/btn7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -54,6 +91,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="+" />
+
+
 
         </LinearLayout>
 
@@ -90,6 +129,10 @@
                 android:layout_weight="1"
                 android:text="-" />
 
+
+
+
+
     </LinearLayout>
 
         <LinearLayout
@@ -125,6 +168,10 @@
                 android:layout_weight="1"
                 android:text="x" />
 
+
+
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -133,11 +180,11 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnIgual"
+                android:id="@+id/btnInverteSinal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="=" />
+                android:text="+/-" />
 
             <Button
                 android:id="@+id/btn0"
@@ -160,8 +207,22 @@
                 android:layout_weight="1"
                 android:text="÷" />
 
+
+
         </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnIgual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="=" />
+    </LinearLayout>
 
 
     </LinearLayout>

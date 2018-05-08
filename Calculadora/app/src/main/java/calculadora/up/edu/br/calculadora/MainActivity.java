@@ -23,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
         btn0.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                if (txtResultado.getText().equals("0")){
+                    txtResultado.setText("");
+                }
                 txtResultado.append("0");
             }
         });
@@ -31,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                if (txtResultado.getText().equals("0")){
+                    txtResultado.setText("");
+                }
                 txtResultado.append("1");
             }
         });
@@ -39,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                if (txtResultado.getText().equals("0")){
+                    txtResultado.setText("");
+                }
                 txtResultado.append("2");
             }
         });
@@ -47,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                if (txtResultado.getText().equals("0")){
+                    txtResultado.setText("");
+                }
                 txtResultado.append("3");
             }
         });
@@ -55,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
         btn4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                if (txtResultado.getText().equals("0")){
+                    txtResultado.setText("");
+                }
                 txtResultado.append("4");
             }
         });
@@ -63,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
         btn5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                if (txtResultado.getText().equals("0")){
+                    txtResultado.setText("");
+                }
                 txtResultado.append("5");
             }
         });
@@ -71,6 +89,9 @@ public class MainActivity extends AppCompatActivity {
         btn6.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                if (txtResultado.getText().equals("0")){
+                    txtResultado.setText("");
+                }
                 txtResultado.append("6");
             }
         });
@@ -79,6 +100,9 @@ public class MainActivity extends AppCompatActivity {
         btn7.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                if (txtResultado.getText().equals("0")){
+                    txtResultado.setText("");
+                }
                 txtResultado.append("7");
             }
         });
@@ -87,6 +111,9 @@ public class MainActivity extends AppCompatActivity {
         btn8.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                if (txtResultado.getText().equals("0")){
+                    txtResultado.setText("");
+                }
                 txtResultado.append("8");
             }
         });
@@ -95,6 +122,9 @@ public class MainActivity extends AppCompatActivity {
         btn9.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                if (txtResultado.getText().equals("0")){
+                    txtResultado.setText("");
+                }
                 txtResultado.append("9");
             }
         });
@@ -143,16 +173,62 @@ public class MainActivity extends AppCompatActivity {
         btnVirgula.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                txtResultado.append(".");
+
+                if (txtResultado.getText().toString().indexOf(".") == -1){
+                    txtResultado.append(".");
+                }
             }
         });
+
+        Button btnC = (Button)findViewById(R.id.btnC);
+        btnC.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                valor1 = 0;
+                txtResultado.setText("0");
+            }
+        });
+
+        Button btnRaiz = (Button)findViewById(R.id.btnRaiz);
+        btnRaiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                valor1 = Double.valueOf(txtResultado.getText().toString());
+                operacao = 5;
+
+                double resultado = Math.sqrt(valor1);
+
+                txtResultado.setText(txtResultado.toString());
+            }
+        });
+
+        Button btnPorcentagem = (Button)findViewById(R.id.btnPorcentagem);
+        btnPorcentagem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                valor1 = Double.valueOf(txtResultado.getText().toString());
+                txtResultado.setText("");
+                operacao = 6;
+            }
+        });
+
+        Button btnPotencia = (Button)findViewById(R.id.btnPotencia);
+        btnPotencia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                valor1 = Double.valueOf(txtResultado.getText().toString());
+                txtResultado.setText("");
+                operacao = 7;
+            }
+        });
+
 
         Button btnIgual = (Button)findViewById(R.id.btnIgual);
         btnIgual.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Double valor2 = Double.valueOf(txtResultado.getText().toString());
-                Double resultadoOperacao = 0.0;
+                Double resultadoOperacao = 0.00;
                 if (operacao == 1){
                     resultadoOperacao = valor1 + valor2;
                 }
@@ -167,6 +243,21 @@ public class MainActivity extends AppCompatActivity {
                         else {
                             if (operacao == 4){
                                 resultadoOperacao = valor1 / valor2;
+                            }
+                            else {
+                                if (operacao == 5){
+                                    resultadoOperacao = Math.sqrt(valor2);
+                                }
+                                else {
+                                    if (operacao == 6){
+                                        resultadoOperacao = valor1 * (valor2/100);
+                                    }
+                                    else {
+                                        if (operacao == 7){
+                                            resultadoOperacao = Math.pow(valor1,valor2);
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
