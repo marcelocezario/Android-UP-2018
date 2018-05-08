@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         btn0.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if (txtResultado.getText().equals("0")){
+                if (txtResultado.getText().toString().equals("0")){
                     txtResultado.setText("");
                 }
                 txtResultado.append("0");
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if (txtResultado.getText().equals("0")){
+                if (txtResultado.getText().toString().equals("0")){
                     txtResultado.setText("");
                 }
                 txtResultado.append("1");
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if (txtResultado.getText().equals("0")){
+                if (txtResultado.getText().toString().equals("0")){
                     txtResultado.setText("");
                 }
                 txtResultado.append("2");
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if (txtResultado.getText().equals("0")){
+                if (txtResultado.getText().toString().equals("0")){
                     txtResultado.setText("");
                 }
                 txtResultado.append("3");
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         btn4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if (txtResultado.getText().equals("0")){
+                if (txtResultado.getText().toString().equals("0")){
                     txtResultado.setText("");
                 }
                 txtResultado.append("4");
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         btn5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if (txtResultado.getText().equals("0")){
+                if (txtResultado.getText().toString().equals("0")){
                     txtResultado.setText("");
                 }
                 txtResultado.append("5");
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         btn6.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if (txtResultado.getText().equals("0")){
+                if (txtResultado.getText().toString().equals("0")){
                     txtResultado.setText("");
                 }
                 txtResultado.append("6");
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         btn7.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if (txtResultado.getText().equals("0")){
+                if (txtResultado.getText().toString().equals("0")){
                     txtResultado.setText("");
                 }
                 txtResultado.append("7");
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         btn8.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if (txtResultado.getText().equals("0")){
+                if (txtResultado.getText().toString().equals("0")){
                     txtResultado.setText("");
                 }
                 txtResultado.append("8");
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         btn9.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if (txtResultado.getText().equals("0")){
+                if (txtResultado.getText().toString().equals("0")){
                     txtResultado.setText("");
                 }
                 txtResultado.append("9");
@@ -196,9 +196,11 @@ public class MainActivity extends AppCompatActivity {
                 valor1 = Double.valueOf(txtResultado.getText().toString());
                 operacao = 5;
 
-                double resultado = Math.sqrt(valor1);
+                Double resultado = 0.00;
 
-                txtResultado.setText(txtResultado.toString());
+                resultado = Math.sqrt(valor1);
+
+                txtResultado.setText(resultado.toString());
             }
         });
 
@@ -262,7 +264,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 }
-
                 txtResultado.setText(resultadoOperacao.toString());
             }
         });
