@@ -304,35 +304,34 @@ public class MainActivity extends AppCompatActivity {
                 Double valor2 = Double.valueOf(txtResultado.getText().toString());
                 Double resultadoOperacao = 0.00;
 
-                    if (operacao == 1) {
+                switch (operacao){
+                    case 1:
                         resultadoOperacao = valor1 + valor2;
-                    } else {
-                        if (operacao == 2) {
-                            resultadoOperacao = valor1 - valor2;
-                        } else {
-                            if (operacao == 3) {
-                                resultadoOperacao = valor1 * valor2;
-                            } else {
-                                if (operacao == 4) {
-                                    resultadoOperacao = valor1 / valor2;
-                                } else {
-                                    if (operacao == 5) {
-                                        resultadoOperacao = Math.sqrt(valor2);
-                                    } else {
-                                        if (operacao == 6) {
-                                            resultadoOperacao = valor1 * (valor2 / 100);
-                                        } else {
-                                            if (operacao == 7) {
-                                                resultadoOperacao = Math.pow(valor1, valor2);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                        break;
+                    case 2:
+                        resultadoOperacao = valor1 - valor2;
+                        break;
+                    case 3:
+                        resultadoOperacao = valor1 * valor2;
+                        break;
+                    case 4:
+                        resultadoOperacao = valor1 / valor2;
+                        break;
+                    case 5:
+                        resultadoOperacao = Math.sqrt(valor2);
+                        break;
+                    case 6:
+                        resultadoOperacao = valor1 * (valor2 / 100);
+                        break;
+                    case 7:
+                        resultadoOperacao = Math.pow(valor1, valor2);
+                        break;
+                    default:
+                        break;
+                }
                     txtResultado.setText(resultadoOperacao.toString());
                     zerarTela = true;
+
                 } catch (Exception e) {
                     txtResultado.setText("0");
                     zerarTela = true;
