@@ -21,70 +21,169 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView9;
 
 
-    public void validarJogada(){
+    public void limparTela (){
+        imageView1.setImageResource(R.drawable.vazio);
+        imageView1.setTag((R.drawable.vazio));
+        imageView2.setImageResource(R.drawable.vazio);
+        imageView2.setTag((R.drawable.vazio));
+        imageView3.setImageResource(R.drawable.vazio);
+        imageView3.setTag((R.drawable.vazio));
+        imageView4.setImageResource(R.drawable.vazio);
+        imageView4.setTag((R.drawable.vazio));
+        imageView5.setImageResource(R.drawable.vazio);
+        imageView5.setTag((R.drawable.vazio));
+        imageView6.setImageResource(R.drawable.vazio);
+        imageView6.setTag((R.drawable.vazio));
+        imageView7.setImageResource(R.drawable.vazio);
+        imageView7.setTag((R.drawable.vazio));
+        imageView8.setImageResource(R.drawable.vazio);
+        imageView8.setTag((R.drawable.vazio));
+        imageView9.setImageResource(R.drawable.vazio);
+        imageView9.setTag((R.drawable.vazio));
+    }
+
+    public void validarJogada() {
 
         //validando linha 1
-        if ((Integer)imageView1.getTag() == R.drawable.circulo
-                && (Integer)imageView2.getTag() == R.drawable.circulo
-                && (Integer)imageView3.getTag() == R.drawable.circulo){
+        if ((Integer) imageView1.getTag() == R.drawable.circulo
+                && (Integer) imageView2.getTag() == R.drawable.circulo
+                && (Integer) imageView3.getTag() == R.drawable.circulo) {
             Toast.makeText(getApplicationContext(),
                     "Círculo Ganhou!", Toast.LENGTH_LONG).show();
-        }
+            limparTela();
+        } else {
+            if ((Integer) imageView1.getTag() == R.drawable.x
+                    && (Integer) imageView2.getTag() == R.drawable.x
+                    && (Integer) imageView3.getTag() == R.drawable.x) {
+                Toast.makeText(getApplicationContext(),
+                        "X Ganhou!", Toast.LENGTH_LONG).show();
+                limparTela();
+            } else {
 
-        //validando linha 2
-        if ((Integer)imageView4.getTag() == R.drawable.circulo
-                && (Integer)imageView5.getTag() == R.drawable.circulo
-                && (Integer)imageView6.getTag() == R.drawable.circulo){
-            Toast.makeText(getApplicationContext(),
-                    "Círculo Ganhou!", Toast.LENGTH_LONG).show();
-        }
+                //validando linha 2
+                if ((Integer) imageView4.getTag() == R.drawable.circulo
+                        && (Integer) imageView5.getTag() == R.drawable.circulo
+                        && (Integer) imageView6.getTag() == R.drawable.circulo) {
+                    Toast.makeText(getApplicationContext(),
+                            "Círculo Ganhou!", Toast.LENGTH_LONG).show();
+                    limparTela();
+                } else {
+                    if ((Integer) imageView4.getTag() == R.drawable.x
+                            && (Integer) imageView5.getTag() == R.drawable.x
+                            && (Integer) imageView6.getTag() == R.drawable.x) {
+                        Toast.makeText(getApplicationContext(),
+                                "X Ganhou!", Toast.LENGTH_LONG).show();
+                        limparTela();
+                    } else {
+                        //validando linha 3
+                        if ((Integer) imageView7.getTag() == R.drawable.circulo
+                                && (Integer) imageView8.getTag() == R.drawable.circulo
+                                && (Integer) imageView9.getTag() == R.drawable.circulo) {
+                            Toast.makeText(getApplicationContext(),
+                                    "Círculo Ganhou!", Toast.LENGTH_LONG).show();
+                            limparTela();
+                        } else {
+                            if ((Integer) imageView7.getTag() == R.drawable.x
+                                    && (Integer) imageView8.getTag() == R.drawable.x
+                                    && (Integer) imageView9.getTag() == R.drawable.x) {
+                                Toast.makeText(getApplicationContext(),
+                                        "X Ganhou!", Toast.LENGTH_LONG).show();
+                                limparTela();
+                            } else {
 
-        //validando linha 3
-        if ((Integer)imageView7.getTag() == R.drawable.circulo
-                && (Integer)imageView8.getTag() == R.drawable.circulo
-                && (Integer)imageView9.getTag() == R.drawable.circulo){
-            Toast.makeText(getApplicationContext(),
-                    "Círculo Ganhou!", Toast.LENGTH_LONG).show();
-        }
+                                //validando coluna 1
+                                if ((Integer) imageView1.getTag() == R.drawable.circulo
+                                        && (Integer) imageView4.getTag() == R.drawable.circulo
+                                        && (Integer) imageView7.getTag() == R.drawable.circulo) {
+                                    Toast.makeText(getApplicationContext(),
+                                            "Círculo Ganhou!", Toast.LENGTH_LONG).show();
+                                    limparTela();
+                                } else {
+                                    if ((Integer) imageView1.getTag() == R.drawable.x
+                                            && (Integer) imageView4.getTag() == R.drawable.x
+                                            && (Integer) imageView7.getTag() == R.drawable.x) {
+                                        Toast.makeText(getApplicationContext(),
+                                                "X Ganhou!", Toast.LENGTH_LONG).show();
+                                        limparTela();
+                                    } else {
 
-        //validando coluna 1
-        if ((Integer)imageView1.getTag() == R.drawable.circulo
-                && (Integer)imageView4.getTag() == R.drawable.circulo
-                && (Integer)imageView7.getTag() == R.drawable.circulo){
-            Toast.makeText(getApplicationContext(),
-                    "Círculo Ganhou!", Toast.LENGTH_LONG).show();
-        }
+                                        //validando coluna 2
+                                        if ((Integer) imageView2.getTag() == R.drawable.circulo
+                                                && (Integer) imageView5.getTag() == R.drawable.circulo
+                                                && (Integer) imageView8.getTag() == R.drawable.circulo) {
+                                            Toast.makeText(getApplicationContext(),
+                                                    "Círculo Ganhou!", Toast.LENGTH_LONG).show();
+                                            limparTela();
+                                        } else {
+                                            if ((Integer) imageView2.getTag() == R.drawable.x
+                                                    && (Integer) imageView5.getTag() == R.drawable.x
+                                                    && (Integer) imageView8.getTag() == R.drawable.x) {
+                                                Toast.makeText(getApplicationContext(),
+                                                        "X Ganhou!", Toast.LENGTH_LONG).show();
+                                                limparTela();
+                                            } else {
+                                                //validando coluna 3
+                                                if ((Integer) imageView3.getTag() == R.drawable.circulo
+                                                        && (Integer) imageView6.getTag() == R.drawable.circulo
+                                                        && (Integer) imageView9.getTag() == R.drawable.circulo) {
+                                                    Toast.makeText(getApplicationContext(),
+                                                            "Círculo Ganhou!", Toast.LENGTH_LONG).show();
+                                                    limparTela();
+                                                } else {
+                                                    if ((Integer) imageView3.getTag() == R.drawable.x
+                                                            && (Integer) imageView6.getTag() == R.drawable.x
+                                                            && (Integer) imageView9.getTag() == R.drawable.x) {
+                                                        Toast.makeText(getApplicationContext(),
+                                                                "X Ganhou!", Toast.LENGTH_LONG).show();
+                                                        limparTela();
+                                                    } else {
 
-        //validando coluna 2
-        if ((Integer)imageView2.getTag() == R.drawable.circulo
-                && (Integer)imageView5.getTag() == R.drawable.circulo
-                && (Integer)imageView8.getTag() == R.drawable.circulo){
-            Toast.makeText(getApplicationContext(),
-                    "Círculo Ganhou!", Toast.LENGTH_LONG).show();
-        }
+                                                        //validando transversal 1
+                                                        if ((Integer) imageView1.getTag() == R.drawable.circulo
+                                                                && (Integer) imageView5.getTag() == R.drawable.circulo
+                                                                && (Integer) imageView9.getTag() == R.drawable.circulo) {
+                                                            Toast.makeText(getApplicationContext(),
+                                                                    "Círculo Ganhou!", Toast.LENGTH_LONG).show();
+                                                            limparTela();
+                                                        } else {
+                                                            //validando transversal 1
+                                                            if ((Integer) imageView1.getTag() == R.drawable.x
+                                                                    && (Integer) imageView5.getTag() == R.drawable.x
+                                                                    && (Integer) imageView9.getTag() == R.drawable.x) {
+                                                                Toast.makeText(getApplicationContext(),
+                                                                        "X Ganhou!", Toast.LENGTH_LONG).show();
+                                                                limparTela();
+                                                            } else {
 
-        //validando coluna 3
-        if ((Integer)imageView3.getTag() == R.drawable.circulo
-                && (Integer)imageView6.getTag() == R.drawable.circulo
-                && (Integer)imageView9.getTag() == R.drawable.circulo){
-            Toast.makeText(getApplicationContext(),
-                    "Círculo Ganhou!", Toast.LENGTH_LONG).show();
-        }
-
-        //validando transversal 1
-        if ((Integer)imageView1.getTag() == R.drawable.circulo
-                && (Integer)imageView5.getTag() == R.drawable.circulo
-                && (Integer)imageView9.getTag() == R.drawable.circulo){
-            Toast.makeText(getApplicationContext(),
-                    "Círculo Ganhou!", Toast.LENGTH_LONG).show();
-        }
-
-        //validando transversal 2
-        if ((Integer)imageView3.getTag() == R.drawable.circulo
-                && (Integer)imageView5.getTag() == R.drawable.circulo
-                && (Integer)imageView7.getTag() == R.drawable.circulo){
-            Toast.makeText(getApplicationContext(),
-                    "Círculo Ganhou!", Toast.LENGTH_LONG).show();
+                                                                //validando transversal 2
+                                                                if ((Integer) imageView3.getTag() == R.drawable.circulo
+                                                                        && (Integer) imageView5.getTag() == R.drawable.circulo
+                                                                        && (Integer) imageView7.getTag() == R.drawable.circulo) {
+                                                                    Toast.makeText(getApplicationContext(),
+                                                                            "Círculo Ganhou!", Toast.LENGTH_LONG).show();
+                                                                    limparTela();
+                                                                } else {
+                                                                    if ((Integer) imageView3.getTag() == R.drawable.x
+                                                                            && (Integer) imageView5.getTag() == R.drawable.x
+                                                                            && (Integer) imageView7.getTag() == R.drawable.x) {
+                                                                        Toast.makeText(getApplicationContext(),
+                                                                                "X Ganhou!", Toast.LENGTH_LONG).show();
+                                                                        limparTela();
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
