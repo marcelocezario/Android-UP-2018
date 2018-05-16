@@ -1,4 +1,4 @@
-package up.edu.br.contatos2;
+package up.edu.br.contatos;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

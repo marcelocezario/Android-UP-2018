@@ -1,4 +1,4 @@
-package up.edu.br.contatos2;
+package up.edu.br.contatos;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("up.edu.br.contatos2", appContext.getPackageName());
+        assertEquals("up.edu.br.contatos", appContext.getPackageName());
     }
 }

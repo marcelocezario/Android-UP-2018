@@ -1,4 +1,4 @@
-package up.edu.br.contatos2;
+package up.edu.br.contatos;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
