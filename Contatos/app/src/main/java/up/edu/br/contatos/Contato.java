@@ -1,13 +1,42 @@
 package up.edu.br.contatos;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+public class Contato {
 
-public class Contato extends AppCompatActivity {
+    private Integer id;
+    private String nome;
+    private String tipo;
+    private String numero;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contato);
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 }
