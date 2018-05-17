@@ -1,5 +1,6 @@
 package up.edu.br.contatos;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -36,6 +37,10 @@ public class ContatoActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),
                     "Salvo com sucesso!",
                     Toast.LENGTH_LONG).show();
+
+            Intent it = new Intent(ContatoActivity.this,MainActivity.class);
+            startActivity(it);
+
             return true;
         }
         return super.onOptionsItemSelected(item);

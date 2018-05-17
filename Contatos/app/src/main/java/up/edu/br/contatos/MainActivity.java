@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,7 +37,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         ListView listaContatos = (ListView)findViewById(R.id.listaContatos);
-        
+
+        ArrayAdapter<Contato> arrayAdapterContatos = new ArrayAdapter<Contato>(getApplicationContext(),
+                android.R.layout.simple_list_item_1);
+
+        arrayAdapterContatos.addAll(new ContatoDao().listar());
+
+        listaContatos.setAdapter(arrayAdapterContatos);
+
     }
 
     @Override
