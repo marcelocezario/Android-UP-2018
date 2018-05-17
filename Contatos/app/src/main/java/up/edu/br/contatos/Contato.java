@@ -7,6 +7,10 @@ public class Contato {
     private String tipo;
     private String numero;
 
+    public String toString(){
+        return nome;
+    }
+
 
     public Integer getId() {
         return id;

@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Contatos</string>
     <string name="action_settings">Settings</string>
+
+    <array name="tipos">
+        <item>Celular</item>
+        <item>Casa</item>
+    </array>
 </resources>
