@@ -1,6 +1,8 @@
 package up.edu.br.contatos;
 
-public class Contato {
+import java.io.Serializable;
+
+public class Contato implements Serializable{
 
     private Integer id;
     private String nome;

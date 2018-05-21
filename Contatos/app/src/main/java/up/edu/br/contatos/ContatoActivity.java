@@ -14,6 +14,21 @@ public class ContatoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contato);
+
+        EditText txtNome =
+                (EditText)findViewById(R.id.txtNome);
+
+
+        Intent it = getIntent();
+        if (it != null && it.hasExtra("contato")){
+
+            Contato c = (Contato) it.getSerializableExtra("contato");
+
+            txtNome.setText(c.getNome());
+
+
+
+        }
     }
 
     @Override

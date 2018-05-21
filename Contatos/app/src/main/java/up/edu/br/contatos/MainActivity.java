@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent it = new Intent(MainActivity.this, ContatoActivity.class);
 
+                it.putExtra("contato", c);
+
                 startActivity(it);
 
             }
