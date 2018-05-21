@@ -9,8 +9,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ListView listaContatos = (ListView)findViewById(R.id.listaContatos);
+        ListView listaContatos = (ListView) findViewById(R.id.listaContatos);
 
         ArrayAdapter<Contato> arrayAdapterContatos = new ArrayAdapter<Contato>(getApplicationContext(),
                 android.R.layout.simple_list_item_1);
@@ -44,6 +46,21 @@ public class MainActivity extends AppCompatActivity {
         arrayAdapterContatos.addAll(new ContatoDao().listar());
 
         listaContatos.setAdapter(arrayAdapterContatos);
+
+        listaContatos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Contato c = (Contato) parent.getItemAtPosition(position);
+
+//                Toast.makeText(getApplicationContext(),"Contato: " + c.getNome(), Toast.LENGTH_LONG).show();
+
+                Intent it = new Intent(MainActivity.this, ContatoActivity.class);
+
+                startActivity(it);
+
+            }
+        });
 
     }
 
