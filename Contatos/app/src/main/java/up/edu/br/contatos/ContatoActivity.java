@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 public class ContatoActivity extends AppCompatActivity {
 
+    Contato contato;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,9 +24,9 @@ public class ContatoActivity extends AppCompatActivity {
         Intent it = getIntent();
         if (it != null && it.hasExtra("contato")){
 
-            Contato c = (Contato) it.getSerializableExtra("contato");
+            contato = (Contato) it.getSerializableExtra("contato");
 
-            txtNome.setText(c.getNome());
+            txtNome.setText(contato.getNome());
 
 
 
@@ -44,10 +46,17 @@ public class ContatoActivity extends AppCompatActivity {
             EditText txtNome =
                     (EditText)findViewById(R.id.txtNome);
 
-            Contato contato = new Contato();
+            if (contato == null){
+                contato = new Contato();
+            }
+
             contato.setNome(txtNome.getText().toString());
 
             new ContatoDao().salvar(contato);
+            contato = null;
+
+
+            
 
             Toast.makeText(getApplicationContext(),
                     "Salvo com sucesso!",

@@ -9,10 +9,18 @@ public class Contato implements Serializable{
     private String tipo;
     private String numero;
 
+    @Override
+    public boolean equals(Object o){
+        if (id == null || ((Contato)o).getId() == null){
+            return false;
+        }
+        return id.equals(((Contato)o).getId());
+    }
+
+
     public String toString(){
         return nome;
     }
-
 
     public Integer getId() {
         return id;
