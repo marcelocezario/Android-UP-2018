@@ -24,4 +24,10 @@ public class ContatoDao {
     public List<Contato> listar(){
         return contatos;
     }
+
+    public void excluir(Contato contato) {
+
+        contatos.remove(contato);
+
+    }
 }

@@ -56,7 +56,7 @@ public class ContatoActivity extends AppCompatActivity {
             contato = null;
 
 
-            
+
 
             Toast.makeText(getApplicationContext(),
                     "Salvo com sucesso!",

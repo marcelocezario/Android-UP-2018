@@ -64,6 +64,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        listaContatos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Contato contato = (Contato)parent.getItemAtPosition(position);
+
+                new ContatoDao().excluir(contato);
+
+                ((ArrayAdapter)parent.getAdapter()).remove(contato);
+                ((ArrayAdapter)parent.getAdapter()).notifyDataSetChanged();
+
+                return false;
+            }
+        });
+
     }
 
     @Override
