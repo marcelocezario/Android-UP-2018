@@ -1,9 +1,11 @@
 package up.edu.br.contatos;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -66,14 +68,36 @@ public class MainActivity extends AppCompatActivity {
 
         listaContatos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            public boolean onItemLongClick(final AdapterView<?> parent, View view, final int position, long id) {
 
-                Contato contato = (Contato)parent.getItemAtPosition(position);
+                AlertDialog.Builder alert =
+                        new AlertDialog.Builder
+                                (MainActivity.this);
+                alert.setMessage("Deseja realmente excluir?");
+                alert.setCancelable(false);
+                alert.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Contato contato = (Contato) parent.getItemAtPosition(position);
 
-                new ContatoDao().excluir(contato);
+                        new ContatoDao().excluir(contato);
 
-                ((ArrayAdapter)parent.getAdapter()).remove(contato);
-                ((ArrayAdapter)parent.getAdapter()).notifyDataSetChanged();
+                        ((ArrayAdapter) parent.getAdapter()).remove(contato);
+                        ((ArrayAdapter) parent.getAdapter()).notifyDataSetChanged();
+
+                    }
+                });
+                alert.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+
+                    }
+                });
+
+                alert.show();
+
 
                 return false;
             }
