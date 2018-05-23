@@ -98,8 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
                 alert.show();
 
-
-                return false;
+                return true;
             }
         });
 
