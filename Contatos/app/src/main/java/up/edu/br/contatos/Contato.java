@@ -8,6 +8,8 @@ public class Contato implements Serializable{
     private String nome;
     private String tipo;
     private String numero;
+    private String email;
+    private boolean ativo;
 
     @Override
     public boolean equals(Object o){
@@ -52,5 +54,21 @@ public class Contato implements Serializable{
 
     public void setNumero(String numero) {
         this.numero = numero;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 }

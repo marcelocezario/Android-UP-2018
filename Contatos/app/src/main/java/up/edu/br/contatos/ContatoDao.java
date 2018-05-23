@@ -14,6 +14,8 @@ public class ContatoDao {
                 c.setNome(contato.getNome());
                 c.setTipo(contato.getTipo());
                 c.setNumero(contato.getNumero());
+                c.setEmail(contato.getEmail());
+                c.setAtivo(contato.isAtivo());
             }
 
         }

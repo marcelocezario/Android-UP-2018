@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ public class ContatoActivity extends AppCompatActivity {
         EditText txtNome = (EditText)findViewById(R.id.txtNome);
         Spinner spTipo = (Spinner)findViewById(R.id.spTipo);
         EditText txtTelefone = (EditText)findViewById(R.id.txtTelefone);
+        EditText txtEmail = (EditText)findViewById(R.id.txtEmail);
 
 
         Intent it = getIntent();
@@ -33,6 +35,8 @@ public class ContatoActivity extends AppCompatActivity {
             txtNome.setText(contato.getNome());
             spTipo.setSelection(((ArrayAdapter)spTipo.getAdapter()).getPosition(contato.getTipo()));
             txtTelefone.setText(contato.getNumero());
+            txtEmail.setText(contato.getEmail());
+            
 
 
 
@@ -53,6 +57,11 @@ public class ContatoActivity extends AppCompatActivity {
             EditText txtNome = (EditText)findViewById(R.id.txtNome);
             Spinner spTipo = (Spinner)findViewById(R.id.spTipo);
             EditText txtTelefone = (EditText)findViewById(R.id.txtTelefone);
+            EditText txtEmail = (EditText)findViewById(R.id.txtEmail);
+            CheckBox checkAtivo = (CheckBox) findViewById(R.id.checkAtivo);
+
+
+
 
 
             if (contato == null){
@@ -62,6 +71,8 @@ public class ContatoActivity extends AppCompatActivity {
             contato.setNome(txtNome.getText().toString());
             contato.setTipo(spTipo.getSelectedItem().toString());
             contato.setNumero(txtTelefone.getText().toString());
+            contato.setEmail(txtEmail.getText().toString());
+            contato.setAtivo(checkAtivo.isChecked());
 
             new ContatoDao().salvar(contato);
             contato = null;
