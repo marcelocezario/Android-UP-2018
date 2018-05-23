@@ -12,6 +12,8 @@ public class ContatoDao {
         for (Contato c: contatos){
             if (c.getId() != null && c.getId().equals(contato.getId())){
                 c.setNome(contato.getNome());
+                c.setTipo(contato.getTipo());
+                c.setNumero(contato.getNumero());
             }
 
         }
