@@ -36,7 +36,7 @@ public class ContatoActivity extends AppCompatActivity {
             spTipo.setSelection(((ArrayAdapter)spTipo.getAdapter()).getPosition(contato.getTipo()));
             txtTelefone.setText(contato.getNumero());
             txtEmail.setText(contato.getEmail());
-            
+
 
 
 
