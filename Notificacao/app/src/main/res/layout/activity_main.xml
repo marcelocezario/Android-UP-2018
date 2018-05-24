@@ -27,6 +27,7 @@
             android:calendarViewShown="false"/>
 
         <TimePicker
+            android:id="@+id/hora"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:timePickerMode="spinner" />
@@ -35,7 +36,8 @@
             android:id="@+id/btnAgendar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="AGENDAR" />
+            android:text="AGENDAR"
+            android:onClick="agendar"/>
 
     </LinearLayout>
 
