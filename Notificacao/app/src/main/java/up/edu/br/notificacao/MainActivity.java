@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         t.schedule(new TimerTask() {
             public void run() {
 
-                
+
                 NotificationCompat.Builder mBuilder =
                         new NotificationCompat.Builder(MainActivity.this)
                                 .setSmallIcon(R.drawable.index)
