@@ -25,6 +25,7 @@ public class ContatoActivity extends AppCompatActivity {
         Spinner spTipo = (Spinner)findViewById(R.id.spTipo);
         EditText txtTelefone = (EditText)findViewById(R.id.txtTelefone);
         EditText txtEmail = (EditText)findViewById(R.id.txtEmail);
+        CheckBox checkAtivo = (CheckBox)findViewById(R.id.checkAtivo);
 
 
         Intent it = getIntent();
@@ -36,7 +37,7 @@ public class ContatoActivity extends AppCompatActivity {
             spTipo.setSelection(((ArrayAdapter)spTipo.getAdapter()).getPosition(contato.getTipo()));
             txtTelefone.setText(contato.getNumero());
             txtEmail.setText(contato.getEmail());
-
+            checkAtivo.setChecked(contato.isAtivo());
 
 
 
