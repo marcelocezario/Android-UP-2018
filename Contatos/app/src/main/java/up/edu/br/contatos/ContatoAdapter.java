@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class ContatoAdapter extends BaseAdapter{
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return this.contatos.get(position);
     }
 
     @Override
@@ -36,6 +37,19 @@ public class ContatoAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+
+        View v = act.getLayoutInflater().inflate(R.layout.contato_adapter, parent, false);
+
+        TextView textView1 = v.findViewById(R.id.textView);
+        TextView textView2 = v.findViewById(R.id.textView2);
+
+
+        Contato c = contatos.get(position);
+
+        textView1.setText(c.getNome());
+        textView2.setText(c.getNumero());
+
+
+        return v;
     }
 }

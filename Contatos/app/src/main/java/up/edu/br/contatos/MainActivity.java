@@ -42,12 +42,16 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listaContatos = (ListView) findViewById(R.id.listaContatos);
 
-        ArrayAdapter<Contato> arrayAdapterContatos = new ArrayAdapter<Contato>(getApplicationContext(),
-                android.R.layout.simple_list_item_1);
+//        ArrayAdapter<Contato> arrayAdapterContatos = new ArrayAdapter<Contato>(getApplicationContext(),
+//                android.R.layout.simple_list_item_1);
+//
+//        arrayAdapterContatos.addAll(new ContatoDao().listar());
 
-        arrayAdapterContatos.addAll(new ContatoDao().listar());
+//        listaContatos.setAdapter(arrayAdapterContatos);
 
-        listaContatos.setAdapter(arrayAdapterContatos);
+        ContatoAdapter contatoAdapter = new ContatoAdapter(new ContatoDao().listar(), this);
+
+        listaContatos.setAdapter(contatoAdapter);
 
         listaContatos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
