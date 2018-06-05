@@ -9,16 +9,15 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class ContatoAdapter extends BaseAdapter{
+public class ContatoAdapter extends BaseAdapter {
 
     private List<Contato> contatos;
     Activity act;
 
-    public ContatoAdapter(List<Contato> contatos, Activity act){
+    public ContatoAdapter(List<Contato> contatos, Activity act) {
         this.contatos = contatos;
         this.act = act;
     }
-
 
 
     @Override
@@ -52,10 +51,12 @@ public class ContatoAdapter extends BaseAdapter{
         textView2.setText(c.getNumero());
 
 
-        if (c.getTipo().equals("Casa")){
+        if (c.getTipo().equals("Casa")) {
             imageView.setImageResource(R.drawable.casa);
-        } else{
-            imageView.setImageResource(R.drawable.casa);
+        } else {
+            if (c.getTipo().equals("Celular")) {
+                imageView.setImageResource(R.drawable.celular);
+            }
         }
 
 
