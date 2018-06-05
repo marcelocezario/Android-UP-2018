@@ -59,6 +59,7 @@ public class ContatoAdapter extends BaseAdapter {
             }
         }
 
+        
 
         return v;
     }
