@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -42,12 +43,20 @@ public class ContatoAdapter extends BaseAdapter{
 
         TextView textView1 = v.findViewById(R.id.textView);
         TextView textView2 = v.findViewById(R.id.textView2);
+        ImageView imageView = v.findViewById(R.id.imageView4);
 
 
         Contato c = contatos.get(position);
 
         textView1.setText(c.getNome());
         textView2.setText(c.getNumero());
+
+
+        if (c.getTipo().equals("Casa")){
+            imageView.setImageResource(R.drawable.casa);
+        } else{
+            imageView.setImageResource(R.drawable.casa);
+        }
 
 
         return v;
