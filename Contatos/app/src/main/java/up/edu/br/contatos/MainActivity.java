@@ -86,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
 
                         new ContatoDao().excluir(contato);
 
-                        ((ArrayAdapter) parent.getAdapter()).remove(contato);
-                        ((ArrayAdapter) parent.getAdapter()).notifyDataSetChanged();
+                        ((ContatoAdapter) parent.getAdapter()).remove(contato);
+                        ((ContatoAdapter) parent.getAdapter()).notifyDataSetChanged();
 
                     }
                 });

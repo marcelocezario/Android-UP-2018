@@ -30,7 +30,7 @@ public class ContatoAdapter extends BaseAdapter {
         return this.contatos.get(position);
     }
 
-    @Override
+   @Override
     public long getItemId(int position) {
         return 0;
     }
@@ -59,7 +59,7 @@ public class ContatoAdapter extends BaseAdapter {
             }
         }
 
-        
+
 
         return v;
     }
