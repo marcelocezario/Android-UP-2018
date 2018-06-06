@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     TextView txtEmpates;
 
     int vitoriasCirculo = 0, vitoriasX = 0, empates = 0;
+    int jogadasCirculo = 0, jogadasX = 0;
+
 
 
     public void limparTela (){
@@ -52,18 +54,22 @@ public class MainActivity extends AppCompatActivity {
 
     public void vitoriaCirculo(){
         Toast.makeText(getApplicationContext(),
-                "Círculo Ganhou!", Toast.LENGTH_LONG).show();
+                "Círculo Ganhou" + " com " + jogadasCirculo + " jogadas", Toast.LENGTH_LONG).show();
         limparTela();
         vitoriasCirculo ++;
         txtVitoriasCirculo.setText("Círculo: " + vitoriasCirculo);
+        jogadasCirculo = 0;
+        jogadasX = 0;
     }
 
     public void vitoriaX (){
         Toast.makeText(getApplicationContext(),
-                "X Ganhou!", Toast.LENGTH_LONG).show();
+                "X Ganhou" + " com " + jogadasX + " jogadas", Toast.LENGTH_LONG).show();
         limparTela();
         vitoriasX ++;
         txtVitoriasX.setText("X: " + vitoriasX);
+        jogadasCirculo = 0;
+        jogadasX = 0;
     }
 
     public void empate(){
@@ -218,10 +224,12 @@ public class MainActivity extends AppCompatActivity {
                 if (jogador == true) {
                     imageView1.setImageResource(R.drawable.circulo);
                     imageView1.setTag((R.drawable.circulo));
+                    jogadasCirculo++;
                     jogador = false;
                 } else {
                     imageView1.setImageResource(R.drawable.x);
                     imageView1.setTag((R.drawable.x));
+                    jogadasX++;
                     jogador = true;
                 }
                 validarJogada();
@@ -235,10 +243,12 @@ public class MainActivity extends AppCompatActivity {
                 if (jogador == true) {
                     imageView2.setImageResource(R.drawable.circulo);
                     imageView2.setTag((R.drawable.circulo));
+                    jogadasCirculo++;
                     jogador = false;
                 } else {
                     imageView2.setImageResource(R.drawable.x);
                     imageView2.setTag((R.drawable.x));
+                    jogadasX++;
                     jogador = true;
                 }
                 validarJogada();
@@ -252,10 +262,12 @@ public class MainActivity extends AppCompatActivity {
                 if (jogador == true) {
                     imageView3.setImageResource(R.drawable.circulo);
                     imageView3.setTag((R.drawable.circulo));
+                    jogadasCirculo++;
                     jogador = false;
                 } else {
                     imageView3.setImageResource(R.drawable.x);
                     imageView3.setTag((R.drawable.x));
+                    jogadasX++;
                     jogador = true;
                 }
                 validarJogada();
@@ -269,10 +281,12 @@ public class MainActivity extends AppCompatActivity {
                 if (jogador == true) {
                     imageView4.setImageResource(R.drawable.circulo);
                     imageView4.setTag((R.drawable.circulo));
+                    jogadasCirculo++;
                     jogador = false;
                 } else {
                     imageView4.setImageResource(R.drawable.x);
                     imageView4.setTag((R.drawable.x));
+                    jogadasX++;
                     jogador = true;
                 }
                 validarJogada();
@@ -286,10 +300,12 @@ public class MainActivity extends AppCompatActivity {
                 if (jogador == true) {
                     imageView5.setImageResource(R.drawable.circulo);
                     imageView5.setTag((R.drawable.circulo));
+                    jogadasCirculo++;
                     jogador = false;
                 } else {
                     imageView5.setImageResource(R.drawable.x);
                     imageView5.setTag((R.drawable.x));
+                    jogadasX++;
                     jogador = true;
                 }
                 validarJogada();
@@ -303,10 +319,12 @@ public class MainActivity extends AppCompatActivity {
                 if (jogador == true) {
                     imageView6.setImageResource(R.drawable.circulo);
                     imageView6.setTag((R.drawable.circulo));
+                    jogadasCirculo++;
                     jogador = false;
                 } else {
                     imageView6.setImageResource(R.drawable.x);
                     imageView6.setTag((R.drawable.x));
+                    jogadasX++;
                     jogador = true;
                 }
                 validarJogada();
@@ -320,10 +338,12 @@ public class MainActivity extends AppCompatActivity {
                 if (jogador == true) {
                     imageView7.setImageResource(R.drawable.circulo);
                     imageView7.setTag((R.drawable.circulo));
+                    jogadasCirculo++;
                     jogador = false;
                 } else {
                     imageView7.setImageResource(R.drawable.x);
                     imageView7.setTag((R.drawable.x));
+                    jogadasX++;
                     jogador = true;
                 }
                 validarJogada();
@@ -337,10 +357,12 @@ public class MainActivity extends AppCompatActivity {
                 if (jogador == true) {
                     imageView8.setImageResource(R.drawable.circulo);
                     imageView8.setTag((R.drawable.circulo));
+                    jogadasCirculo++;
                     jogador = false;
                 } else {
                     imageView8.setImageResource(R.drawable.x);
                     imageView8.setTag((R.drawable.x));
+                    jogadasX++;
                     jogador = true;
                 }
                 validarJogada();
@@ -354,10 +376,12 @@ public class MainActivity extends AppCompatActivity {
                 if (jogador == true) {
                     imageView9.setImageResource(R.drawable.circulo);
                     imageView9.setTag((R.drawable.circulo));
+                    jogadasCirculo++;
                     jogador = false;
                 } else {
                     imageView9.setImageResource(R.drawable.x);
                     imageView9.setTag((R.drawable.x));
+                    jogadasX++;
                     jogador = true;
                 }
                 validarJogada();
