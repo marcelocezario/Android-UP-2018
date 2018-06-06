@@ -3,6 +3,7 @@ package up.edu.br.jogodavelha;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -215,6 +216,13 @@ public class MainActivity extends AppCompatActivity {
         txtVitoriasX = (TextView)findViewById(R.id.txtVitoriasX);
         txtEmpates = (TextView)findViewById(R.id.txtEmpates);
 
+        Button btnReiniciarPartida = (Button) findViewById(R.id.btnReiniciarPartida);
+        btnReiniciarPartida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limparTela();
+            }
+        });
 
 
         imageView1 = (ImageView) findViewById(R.id.imageView1);
@@ -387,6 +395,8 @@ public class MainActivity extends AppCompatActivity {
                 validarJogada();
             }
         });
+
+
 
         imageView1.setTag(R.drawable.vazio);
         imageView2.setTag(R.drawable.vazio);
