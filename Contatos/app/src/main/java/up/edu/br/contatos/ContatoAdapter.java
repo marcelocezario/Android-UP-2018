@@ -63,4 +63,8 @@ public class ContatoAdapter extends BaseAdapter {
 
         return v;
     }
+
+    public void remove(Contato contato) {
+        this.contatos.remove(contato);
+    }
 }
