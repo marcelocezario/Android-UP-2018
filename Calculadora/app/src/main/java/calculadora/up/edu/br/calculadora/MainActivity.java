@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main);
 
         final TextView txtResultado = (TextView) findViewById(R.id.txtResultado);
 
@@ -246,9 +246,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    valor1 = Double.valueOf(txtResultado.getText().toString());
-                    txtResultado.setText("0");
-                    operacao = 6;
+                    Double valorPorcentagem = 0.00, resultadoPorcentagem = 0.00;
+
+                    valorPorcentagem = Double.valueOf(txtResultado.getText().toString());
+
+                    resultadoPorcentagem = valor1 * (valorPorcentagem / 100);
+
+                    txtResultado.setText(resultadoPorcentagem.toString());
+
+//                    valor1 = Double.valueOf(txtResultado.getText().toString());
+//                    txtResultado.setText("0");
+//                    operacao = 6;
                 } catch (Exception e) {
                     txtResultado.setText("0");
                     zerarTela = true;
@@ -278,7 +286,7 @@ public class MainActivity extends AppCompatActivity {
                 Double valorDecimal;
                 Integer valorInteiro;
 
-                try{
+                try {
                     if (txtResultado.getText().toString().indexOf(".") == -1) {
                         valorInteiro = -Integer.parseInt(txtResultado.getText().toString());
                         txtResultado.setText(valorInteiro.toString());
@@ -289,7 +297,7 @@ public class MainActivity extends AppCompatActivity {
                             txtResultado.setText(txtResultado.getText().toString().replace("-", ""));
                         }
                     }
-                } catch (Exception e){
+                } catch (Exception e) {
                     txtResultado.setText("0");
                 }
             }
@@ -300,36 +308,52 @@ public class MainActivity extends AppCompatActivity {
         btnIgual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                Double valor2 = Double.valueOf(txtResultado.getText().toString());
-                Double resultadoOperacao = 0.00;
+                boolean validaOperacao = true;
 
-                switch (operacao){
-                    case 1:
-                        resultadoOperacao = valor1 + valor2;
-                        break;
-                    case 2:
-                        resultadoOperacao = valor1 - valor2;
-                        break;
-                    case 3:
-                        resultadoOperacao = valor1 * valor2;
-                        break;
-                    case 4:
-                        resultadoOperacao = valor1 / valor2;
-                        break;
-                    case 5:
-                        resultadoOperacao = Math.sqrt(valor2);
-                        break;
-                    case 6:
-                        resultadoOperacao = valor1 * (valor2 / 100);
-                        break;
-                    case 7:
-                        resultadoOperacao = Math.pow(valor1, valor2);
-                        break;
-                    default:
-                        break;
-                }
-                    txtResultado.setText(resultadoOperacao.toString());
+                try {
+                    Double valor2 = Double.valueOf(txtResultado.getText().toString());
+                    Double resultadoOperacao = 0.00;
+
+                    switch (operacao) {
+                        case 1:
+                            resultadoOperacao = valor1 + valor2;
+                            validaOperacao = true;
+                            break;
+                        case 2:
+                            resultadoOperacao = valor1 - valor2;
+                            validaOperacao = true;
+                            break;
+                        case 3:
+                            resultadoOperacao = valor1 * valor2;
+                            validaOperacao = true;
+                            break;
+                        case 4:
+                            if (valor1 == 0 || valor2 == 0) {
+                                validaOperacao = false;
+                            } else {
+                                resultadoOperacao = valor1 / valor2;
+                            }
+                            break;
+                        case 5:
+                            resultadoOperacao = Math.sqrt(valor2);
+                            validaOperacao = true;
+                            break;
+                        case 6:
+                            resultadoOperacao = valor1 * (valor2 / 100);
+                            validaOperacao = true;
+                            break;
+                        case 7:
+                            resultadoOperacao = Math.pow(valor1, valor2);
+                            validaOperacao = true;
+                            break;
+                        default:
+                            break;
+                    }
+                    if (validaOperacao) {
+                        txtResultado.setText(resultadoOperacao.toString());
+                    } else {
+                        txtResultado.setText("Impossível dividir 0 ou dividir por 0");
+                    }
                     zerarTela = true;
 
                 } catch (Exception e) {
