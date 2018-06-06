@@ -9,6 +9,10 @@ public class Contato implements Serializable{
     private String tipo;
     private String numero;
     private String email;
+
+    private String cidade;
+    private String estado;
+
     private boolean ativo;
 
     @Override
@@ -70,5 +74,21 @@ public class Contato implements Serializable{
 
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }

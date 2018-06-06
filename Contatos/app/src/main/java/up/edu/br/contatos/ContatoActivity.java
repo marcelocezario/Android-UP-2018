@@ -25,6 +25,11 @@ public class ContatoActivity extends AppCompatActivity {
         Spinner spTipo = (Spinner)findViewById(R.id.spTipo);
         EditText txtTelefone = (EditText)findViewById(R.id.txtTelefone);
         EditText txtEmail = (EditText)findViewById(R.id.txtEmail);
+
+
+        EditText txtCidade = (EditText) findViewById(R.id.txtCidade);
+        Spinner spEstado = (Spinner)findViewById(R.id.spEstado);
+
         CheckBox checkAtivo = (CheckBox)findViewById(R.id.checkAtivo);
 
 
@@ -37,6 +42,10 @@ public class ContatoActivity extends AppCompatActivity {
             spTipo.setSelection(((ArrayAdapter)spTipo.getAdapter()).getPosition(contato.getTipo()));
             txtTelefone.setText(contato.getNumero());
             txtEmail.setText(contato.getEmail());
+
+            txtCidade.setText(contato.getCidade());
+            spEstado.setSelection(((ArrayAdapter)spEstado.getAdapter()).getPosition(contato.getEstado()));
+
             checkAtivo.setChecked(contato.isAtivo());
 
 
@@ -59,6 +68,10 @@ public class ContatoActivity extends AppCompatActivity {
             Spinner spTipo = (Spinner)findViewById(R.id.spTipo);
             EditText txtTelefone = (EditText)findViewById(R.id.txtTelefone);
             EditText txtEmail = (EditText)findViewById(R.id.txtEmail);
+
+            EditText txtCidade = (EditText)findViewById(R.id.txtCidade);
+            Spinner spEstado = (Spinner)findViewById(R.id.spEstado);
+
             CheckBox checkAtivo = (CheckBox) findViewById(R.id.checkAtivo);
 
 
@@ -73,6 +86,10 @@ public class ContatoActivity extends AppCompatActivity {
             contato.setTipo(spTipo.getSelectedItem().toString());
             contato.setNumero(txtTelefone.getText().toString());
             contato.setEmail(txtEmail.getText().toString());
+
+            contato.setCidade(txtCidade.getText().toString());
+            contato.setEstado(spEstado.getSelectedItem().toString());
+
             contato.setAtivo(checkAtivo.isChecked());
 
             new ContatoDao().salvar(contato);
