@@ -51,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
         imageView8.setTag((R.drawable.vazio));
         imageView9.setImageResource(R.drawable.vazio);
         imageView9.setTag((R.drawable.vazio));
+
+        jogadasCirculo = 0;
+        jogadasX = 0;
     }
 
     public void vitoriaCirculo(){
