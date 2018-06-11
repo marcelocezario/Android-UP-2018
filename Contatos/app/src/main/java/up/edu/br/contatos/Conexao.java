@@ -6,13 +6,29 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class Conexao extends SQLiteOpenHelper{
 
+    private static Conexao conexao;
+
+    public static Conexao getInstance(){
+        return conexao;
+    }
+
 
     public Conexao(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
+        conexao = this;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+        String statement  = " create table contato (" +
+                " id integer primary key autoincrement," +
+                " nome varchar (255)," +
+                " tipo varchar (50)," +
+                " telefone varchar (20) " +
+                ")";
+
+        db.execSQL(statement);
 
     }
 
