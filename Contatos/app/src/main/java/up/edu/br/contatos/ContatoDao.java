@@ -20,8 +20,13 @@ public class ContatoDao {
         values.put("tipo", contato.getTipo());
         values.put("telefone", contato.getNumero());
 
-        conn.insert("contato", null,values);
 
+        if(contato.getId() == null){
+            conn.insert("contato", null,values);
+        } else {
+            conn.update("contato", values,"id = ?", new String [] {contato.getId().toString()});
+        }
+        
 
 
 
