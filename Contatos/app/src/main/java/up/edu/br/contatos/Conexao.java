@@ -29,11 +29,13 @@ public class Conexao extends SQLiteOpenHelper{
                 ")";
 
         db.execSQL(statement);
-
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+        if (newVersion > oldVersion){
+            db.execSQL(" alter table contato add email varchar(255)");
+        }
     }
 }

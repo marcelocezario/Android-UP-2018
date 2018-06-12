@@ -19,6 +19,7 @@ public class ContatoDao {
         values.put("nome", contato.getNome());
         values.put("tipo", contato.getTipo());
         values.put("telefone", contato.getNumero());
+        values.put("email", contato.getEmail());
 
 
         if(contato.getId() == null){
@@ -50,7 +51,7 @@ public class ContatoDao {
     public List<Contato> listar(){
         SQLiteDatabase conn = Conexao.getInstance().getReadableDatabase();
 
-        Cursor c = conn.query("contato",new String[] {"id","nome","tipo","telefone"},
+        Cursor c = conn.query("contato",new String[] {"id","nome","tipo","telefone", "email"},
                 null, null, null, null,"nome");
 
         ArrayList<Contato> contatos = new ArrayList<Contato>();
@@ -62,6 +63,8 @@ public class ContatoDao {
                 contato.setNome(c.getString(1));
                 contato.setTipo(c.getString(2));
                 contato.setNumero(c.getString(3));
+                contato.setEmail(c.getString(4));
+
                 contatos.add(contato);
             } while (c.moveToNext());
         }
