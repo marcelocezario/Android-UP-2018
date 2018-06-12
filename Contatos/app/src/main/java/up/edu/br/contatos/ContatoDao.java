@@ -26,7 +26,7 @@ public class ContatoDao {
         } else {
             conn.update("contato", values,"id = ?", new String [] {contato.getId().toString()});
         }
-        
+
 
 
 
@@ -70,6 +70,10 @@ public class ContatoDao {
     }
 
     public void excluir(Contato contato) {
+
+        SQLiteDatabase conn = Conexao.getInstance().getWritableDatabase();
+
+        conn.delete("contato","id = ?", new String [] {contato.getId().toString()});
 
     }
 }
