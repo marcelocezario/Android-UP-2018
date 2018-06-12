@@ -1,6 +1,7 @@
 package up.edu.br.contatos;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
@@ -42,7 +43,25 @@ public class ContatoDao {
     }
 
     public List<Contato> listar(){
-        return new ArrayList<>();
+        SQLiteDatabase conn = Conexao.getInstance().getReadableDatabase();
+
+        Cursor c = conn.query("contato",new String[] {"id","nome","tipo","telefone"},
+                null, null, null, null,"nome");
+
+        ArrayList<Contato> contatos = new ArrayList<Contato>();
+
+        if (c.moveToFirst()){
+            do{
+                Contato contato = new Contato();
+                contato.setId(c.getInt(0));
+                contato.setNome(c.getString(1));
+                contato.setTipo(c.getString(2));
+                contato.setNumero(c.getString(3));
+                contatos.add(contato);
+            } while (c.moveToNext());
+        }
+
+        return contatos;
     }
 
     public void excluir(Contato contato) {
