@@ -59,7 +59,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:srcCompat="@android:drawable/stat_sys_phone_call_forward"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:onClick="ligar"/>
 
             <EditText
                 android:id="@+id/txtTelefone"
