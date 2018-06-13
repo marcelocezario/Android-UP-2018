@@ -124,4 +124,14 @@ public class ContatoActivity extends AppCompatActivity {
         startActivity(callIntent);
 
     }
+
+    public void email(View view) {
+
+        EditText txtEmail = (EditText) findViewById(R.id.txtEmail);
+
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, txtEmail.getText());
+
+        startActivity(Intent.createChooser(emailIntent, "Send Email"));
+    }
 }
