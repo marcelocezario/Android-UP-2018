@@ -111,8 +111,10 @@ public class ContatoActivity extends AppCompatActivity {
 
     public void ligar(View view) {
 
+        EditText txtTelefone = (EditText) findViewById(R.id.txtTelefone);
+
         Intent callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setData(Uri.parse("tel:41999999999"));
+        callIntent.setData(Uri.parse("tel:" + txtTelefone.getText()));
 
         ActivityCompat.requestPermissions(ContatoActivity.this, new String[]{Manifest.permission.CALL_PHONE}, 1);
 
