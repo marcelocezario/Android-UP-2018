@@ -1,7 +1,10 @@
 package up.edu.br.contatos;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,41 +26,39 @@ public class ContatoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contato);
 
-        EditText txtNome = (EditText)findViewById(R.id.txtNome);
-        Spinner spTipo = (Spinner)findViewById(R.id.spTipo);
-        EditText txtTelefone = (EditText)findViewById(R.id.txtTelefone);
-        EditText txtEmail = (EditText)findViewById(R.id.txtEmail);
+        EditText txtNome = (EditText) findViewById(R.id.txtNome);
+        Spinner spTipo = (Spinner) findViewById(R.id.spTipo);
+        EditText txtTelefone = (EditText) findViewById(R.id.txtTelefone);
+        EditText txtEmail = (EditText) findViewById(R.id.txtEmail);
 
 
         EditText txtCidade = (EditText) findViewById(R.id.txtCidade);
-        Spinner spEstado = (Spinner)findViewById(R.id.spEstado);
+        Spinner spEstado = (Spinner) findViewById(R.id.spEstado);
 
-        CheckBox checkAtivo = (CheckBox)findViewById(R.id.checkAtivo);
+        CheckBox checkAtivo = (CheckBox) findViewById(R.id.checkAtivo);
 
 
         Intent it = getIntent();
-        if (it != null && it.hasExtra("contato")){
+        if (it != null && it.hasExtra("contato")) {
 
             contato = (Contato) it.getSerializableExtra("contato");
 
             txtNome.setText(contato.getNome());
-            spTipo.setSelection(((ArrayAdapter)spTipo.getAdapter()).getPosition(contato.getTipo()));
+            spTipo.setSelection(((ArrayAdapter) spTipo.getAdapter()).getPosition(contato.getTipo()));
             txtTelefone.setText(contato.getNumero());
             txtEmail.setText(contato.getEmail());
 
             txtCidade.setText(contato.getCidade());
-            spEstado.setSelection(((ArrayAdapter)spEstado.getAdapter()).getPosition(contato.getEstado()));
+            spEstado.setSelection(((ArrayAdapter) spEstado.getAdapter()).getPosition(contato.getEstado()));
 
             checkAtivo.setChecked(contato.isAtivo());
-
-
 
 
         }
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_contato, menu);
         return true;
     }
@@ -66,21 +67,18 @@ public class ContatoActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.save) {
-            EditText txtNome = (EditText)findViewById(R.id.txtNome);
-            Spinner spTipo = (Spinner)findViewById(R.id.spTipo);
-            EditText txtTelefone = (EditText)findViewById(R.id.txtTelefone);
-            EditText txtEmail = (EditText)findViewById(R.id.txtEmail);
+            EditText txtNome = (EditText) findViewById(R.id.txtNome);
+            Spinner spTipo = (Spinner) findViewById(R.id.spTipo);
+            EditText txtTelefone = (EditText) findViewById(R.id.txtTelefone);
+            EditText txtEmail = (EditText) findViewById(R.id.txtEmail);
 
-            EditText txtCidade = (EditText)findViewById(R.id.txtCidade);
-            Spinner spEstado = (Spinner)findViewById(R.id.spEstado);
+            EditText txtCidade = (EditText) findViewById(R.id.txtCidade);
+            Spinner spEstado = (Spinner) findViewById(R.id.spEstado);
 
             CheckBox checkAtivo = (CheckBox) findViewById(R.id.checkAtivo);
 
 
-
-
-
-            if (contato == null){
+            if (contato == null) {
                 contato = new Contato();
             }
 
@@ -98,13 +96,11 @@ public class ContatoActivity extends AppCompatActivity {
             contato = null;
 
 
-
-
             Toast.makeText(getApplicationContext(),
                     "Salvo com sucesso!",
                     Toast.LENGTH_LONG).show();
 
-            Intent it = new Intent(ContatoActivity.this,MainActivity.class);
+            Intent it = new Intent(ContatoActivity.this, MainActivity.class);
             startActivity(it);
 
             return true;
@@ -117,7 +113,13 @@ public class ContatoActivity extends AppCompatActivity {
 
         Intent callIntent = new Intent(Intent.ACTION_CALL);
         callIntent.setData(Uri.parse("tel:41999999999"));
+
+        ActivityCompat.requestPermissions(ContatoActivity.this, new String[]{Manifest.permission.CALL_PHONE}, 1);
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
         startActivity(callIntent);
-        
+
     }
 }
