@@ -25,7 +25,8 @@ public class Conexao extends SQLiteOpenHelper{
                 " id integer primary key autoincrement," +
                 " nome varchar (255)," +
                 " tipo varchar (50)," +
-                " telefone varchar (20) " +
+                " telefone varchar (20), " +
+                " email varchar (255) " +
                 ")";
 
         db.execSQL(statement);
@@ -34,8 +35,10 @@ public class Conexao extends SQLiteOpenHelper{
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        if (newVersion > oldVersion){
-            db.execSQL(" alter table contato add email varchar(255)");
+        if (oldVersion == 1){
+//            if (newVersion > oldVersion){
+                db.execSQL(" alter table contato add email varchar(255)");
+//            }
         }
     }
 }
