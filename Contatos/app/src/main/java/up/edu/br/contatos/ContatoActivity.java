@@ -1,6 +1,7 @@
 package up.edu.br.contatos;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -114,6 +115,9 @@ public class ContatoActivity extends AppCompatActivity {
 
     public void ligar(View view) {
 
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:41999999999"));
+        startActivity(callIntent);
         
     }
 }
