@@ -128,9 +128,6 @@ public class ContatoActivity extends AppCompatActivity {
     public void email(View view) {
 
         EditText txtEmail = (EditText) findViewById(R.id.txtEmail);
-//        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", txtEmail.getText().toString(), null));
-//        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto:", "marcelocezario@gmail.com", null));
-
 
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
         emailIntent.setData(Uri.parse("mailto:" + txtEmail.getText().toString()));
