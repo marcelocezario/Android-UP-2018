@@ -128,10 +128,15 @@ public class ContatoActivity extends AppCompatActivity {
     public void email(View view) {
 
         EditText txtEmail = (EditText) findViewById(R.id.txtEmail);
+//        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", txtEmail.getText().toString(), null));
+//        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto:", "marcelocezario@gmail.com", null));
 
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, txtEmail.getText());
 
-        startActivity(Intent.createChooser(emailIntent, "Send Email"));
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setData(Uri.parse("mailto:" + txtEmail.getText().toString()));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Testando envio por de email");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Enviado email por intent");
+
+        startActivity(Intent.createChooser(emailIntent, "Email do contato"));
     }
 }
