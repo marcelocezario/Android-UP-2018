@@ -26,7 +26,10 @@ public class Conexao extends SQLiteOpenHelper{
                 " nome varchar (255)," +
                 " tipo varchar (50)," +
                 " telefone varchar (20), " +
-                " email varchar (255) " +
+                " email varchar (255), " +
+                " cidade varchar (255), " +
+                " estado varchar (50), " +
+                " imagem blob" +
                 ")";
 
         db.execSQL(statement);

@@ -20,6 +20,9 @@ public class ContatoDao {
         values.put("tipo", contato.getTipo());
         values.put("telefone", contato.getNumero());
         values.put("email", contato.getEmail());
+        values.put("cidade", contato.getCidade());
+        values.put("estado", contato.getEstado());
+        values.put("imagem", contato.getImagem());
 
 
         if(contato.getId() == null){
@@ -27,11 +30,6 @@ public class ContatoDao {
         } else {
             conn.update("contato", values,"id = ?", new String [] {contato.getId().toString()});
         }
-
-
-
-
-
 
 //        for (Contato c: contatos){
 //            if (c.getId() != null && c.getId().equals(contato.getId())){
@@ -51,7 +49,7 @@ public class ContatoDao {
     public List<Contato> listar(){
         SQLiteDatabase conn = Conexao.getInstance().getReadableDatabase();
 
-        Cursor c = conn.query("contato",new String[] {"id","nome","tipo","telefone", "email"},
+        Cursor c = conn.query("contato",new String[] {"id","nome","tipo","telefone", "email", "cidade", "estado", "imagem"},
                 null, null, null, null,"nome");
 
         ArrayList<Contato> contatos = new ArrayList<Contato>();
@@ -64,6 +62,10 @@ public class ContatoDao {
                 contato.setTipo(c.getString(2));
                 contato.setNumero(c.getString(3));
                 contato.setEmail(c.getString(4));
+                contato.setCidade(c.getString(5));
+                contato.setEstado(c.getString(6));
+                contato.setImagem(c.getBlob(7));
+
 
                 contatos.add(contato);
             } while (c.moveToNext());

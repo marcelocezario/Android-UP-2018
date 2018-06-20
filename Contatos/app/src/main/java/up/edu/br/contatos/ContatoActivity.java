@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
@@ -19,6 +21,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 
 public class ContatoActivity extends AppCompatActivity {
 
@@ -42,6 +47,8 @@ public class ContatoActivity extends AppCompatActivity {
 
         CheckBox checkAtivo = (CheckBox) findViewById(R.id.checkAtivo);
 
+        ImageView image = (ImageView) findViewById(R.id.image);
+
 
         Intent it = getIntent();
         if (it != null && it.hasExtra("contato")) {
@@ -58,10 +65,13 @@ public class ContatoActivity extends AppCompatActivity {
 
             checkAtivo.setChecked(contato.isAtivo());
 
+            ByteArrayInputStream imageStream = new ByteArrayInputStream(contato.getImagem());
+            Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
+            image.setImageBitmap(bitmap);
+
 
         }
 
-        ImageView image = (ImageView) findViewById(R.id.image);
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,6 +102,8 @@ public class ContatoActivity extends AppCompatActivity {
 
             CheckBox checkAtivo = (CheckBox) findViewById(R.id.checkAtivo);
 
+            ImageView image = (ImageView) findViewById(R.id.image);
+
 
             if (contato == null) {
                 contato = new Contato();
@@ -106,6 +118,14 @@ public class ContatoActivity extends AppCompatActivity {
             contato.setEstado(spEstado.getSelectedItem().toString());
 
             contato.setAtivo(checkAtivo.isChecked());
+
+            Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            byte[] imageInByte = baos.toByteArray();
+            contato.setImagem(imageInByte);
+
+
 
             new ContatoDao().salvar(contato);
             contato = null;
