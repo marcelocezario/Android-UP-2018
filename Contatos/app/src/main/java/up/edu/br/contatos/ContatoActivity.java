@@ -1,8 +1,10 @@
 package up.edu.br.contatos;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
@@ -21,6 +23,7 @@ import android.widget.Toast;
 public class ContatoActivity extends AppCompatActivity {
 
     Contato contato;
+    int CAMERA_REQUEST = 1888;
 
 
     @Override
@@ -147,5 +150,14 @@ public class ContatoActivity extends AppCompatActivity {
         emailIntent.putExtra(Intent.EXTRA_TEXT, "Enviado email por intent");
 
         startActivity(Intent.createChooser(emailIntent, "Email do contato"));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK){
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            ImageView image = (ImageView) findViewById(R.id.image);
+            image.setImageBitmap(photo);
+        }
     }
 }
